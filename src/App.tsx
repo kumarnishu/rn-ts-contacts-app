@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { UserContext, UserProvider } from "./contexts/UserContext";
-import { SignInStack, SignOutStack } from "./Navigation";
+import {UserProvider } from "./contexts/UserContext";
+import { SignInStack } from "./Navigation";
 
 export default function App() {
     return (
@@ -11,10 +10,7 @@ export default function App() {
 
 }
 const Main = () => {
-    const { user } = useContext(UserContext)
     return (
-        <>
-            {user ? <SignInStack /> : <SignOutStack />}
-        </>
+        <SignInStack />
     )
 }
