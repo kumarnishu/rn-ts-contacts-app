@@ -1,10 +1,10 @@
 import { View, Text, Button } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { StackNavigation } from '../Navigation'
+import { NavigationType } from '../Navigation'
 
 const AboutScreen = () => {
-  const { navigate } = useNavigation<StackNavigation>()
+  const { navigate } = useNavigation<NavigationType>()
   return (
     <View>
       <Text>About Screen</Text>
