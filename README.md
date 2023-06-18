@@ -1,2 +1,2 @@
 # rn_project
-React Native Project Navigation implementation
+React Native Project Based Learnings
