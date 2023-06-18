@@ -1,23 +1,22 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer, NavigationProp } from '@react-navigation/native'
+import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
+import { NavigationContainer } from '@react-navigation/native';
 
-export type ScreenNames = ["home", "login", "register", "about", "welcome"] // type these manually
+const StackNavigator = createStackNavigator();
+export type ScreenNames = ["home", "about"] // type these manually
 
 export type RootStackParamList = Record<ScreenNames[number], undefined>;
-export type StackNavigation = NavigationProp<RootStackParamList>;
+export type StackNavigation = StackNavigationProp<RootStackParamList>;
 
-const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export function SignInStack() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='home' screenOptions={{ headerShown: false, animation: 'none' }}>
-        <Stack.Screen name='home' component={HomeScreen} />
-        <Stack.Screen name='about' component={AboutScreen} />
-      </Stack.Navigator>
+    <NavigationContainer  >
+      <StackNavigator.Navigator initialRouteName="home" screenOptions={{ headerShown: false }}>
+        <StackNavigator.Screen name="home" component={HomeScreen} />
+        <StackNavigator.Screen name="about" component={AboutScreen} />
+      </StackNavigator.Navigator>
     </NavigationContainer>
-  )
+  );
 }
-
