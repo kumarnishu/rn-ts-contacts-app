@@ -1,12 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import AboutScreen from './screens/AboutScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import RecentContactsScreen from './screens/RecentContactsScreen';
+import ContactListScreen from './screens/ContactListScreen';
 
-const StackBottomTabNavigator = createBottomTabNavigator();
 
-export type ScreenNames = ["home", "about"] // type these manually
+const Navigator = createMaterialTopTabNavigator();
+
+export type ScreenNames = ["contacts", "recents"] // type these manually
 
 export type RootStackParamList = Record<ScreenNames[number], undefined>;
 export type NavigationType = StackNavigationProp<RootStackParamList>;
@@ -14,12 +15,11 @@ export type NavigationType = StackNavigationProp<RootStackParamList>;
 
 export function SignInStack() {
   return (
-    <NavigationContainer  >
-      <StackBottomTabNavigator.Navigator initialRouteName="home">
-        <StackBottomTabNavigator.Screen name="home" component={HomeScreen} />
-        <StackBottomTabNavigator.Screen name="about" component={AboutScreen} />
-      </StackBottomTabNavigator.Navigator>
-    </NavigationContainer>
+      <NavigationContainer  >
+      <Navigator.Navigator initialRouteName="recents">
+          <Navigator.Screen name="recents" component={RecentContactsScreen} />
+          <Navigator.Screen name="contacts" component={ContactListScreen} />
+        </Navigator.Navigator>
+      </NavigationContainer>
   );
-  
 }
