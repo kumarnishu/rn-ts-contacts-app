@@ -2,9 +2,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const DrawerNavigator = createDrawerNavigator();
+const StackBottomTabNavigator = createBottomTabNavigator();
 
 export type ScreenNames = ["home", "about"] // type these manually
 
@@ -15,10 +15,10 @@ export type NavigationType = StackNavigationProp<RootStackParamList>;
 export function SignInStack() {
   return (
     <NavigationContainer  >
-      <DrawerNavigator.Navigator initialRouteName="home">
-        <DrawerNavigator.Screen name="home" component={HomeScreen} />
-        <DrawerNavigator.Screen name="about" component={AboutScreen} />
-      </DrawerNavigator.Navigator>
+      <StackBottomTabNavigator.Navigator initialRouteName="home">
+        <StackBottomTabNavigator.Screen name="home" component={HomeScreen} />
+        <StackBottomTabNavigator.Screen name="about" component={AboutScreen} />
+      </StackBottomTabNavigator.Navigator>
     </NavigationContainer>
   );
   
