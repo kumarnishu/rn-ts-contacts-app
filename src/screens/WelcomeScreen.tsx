@@ -7,7 +7,7 @@ const WelcomeScreen = () => {
   const { navigate } = useNavigation<StackNavigation>()
   return (
     <View>
-      <Text>Welcome</Text>
+      <Text>Welcome page is here</Text>
       <Button color={`#32cd32`} title="agree and continue" onPress={() => navigate('login')} />
     </View>
   )

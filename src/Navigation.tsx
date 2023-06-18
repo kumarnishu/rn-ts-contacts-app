@@ -5,6 +5,7 @@ import AboutScreen from './screens/AboutScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import { Alert, Button } from 'react-native';
 
 export type ScreenNames = ["home", "login", "register", "about", "welcome"] // type these manually
 export type RootStackParamList = Record<ScreenNames[number], undefined>;
@@ -25,7 +26,13 @@ export function SignInStack() {
 export function SignOutStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='welcome' screenOptions={{ headerShown: false, animation: 'none' }}>
+      <Stack.Navigator initialRouteName='welcome' screenOptions={{
+        headerShown: false, animation: 'none', headerRight: () => (
+          <Button
+            onPress={() => Alert.alert('This is a button!')}
+            title="Info"
+            color="#fff"
+          />) }}>
         <Stack.Screen name="welcome" component={WelcomeScreen} />
         <Stack.Screen name="login" component={LoginScreen} />
         <Stack.Screen name="register" component={RegisterScreen} />
