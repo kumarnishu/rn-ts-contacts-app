@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * Sample React Native Backup
  * https://github.com/facebook/react-native
  *
  * @format
@@ -55,7 +55,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+function Backup(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -77,7 +77,7 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            Edit <Text style={styles.highlight}>Backup.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Backup;
