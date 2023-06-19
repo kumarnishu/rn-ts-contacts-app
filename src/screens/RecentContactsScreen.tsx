@@ -1,27 +1,11 @@
 import { View, Text, PermissionsAndroid, ScrollView, Image } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Contacts from 'react-native-contacts';
+import { ContactsContext } from '../contexts/ContactsContext';
 
 
 const RecentContactsScreen = () => {
-  const [contacts, setContacts] = useState<Contacts.Contact[]>([])
-
-  useEffect(() => {
-    PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
-      {
-        'title': 'Contacts',
-        'message': 'This app would like to view your contacts.',
-        'buttonPositive': 'Please accept bare mortal'
-      }
-    ).then(async () => {
-      await Contacts.getAll().then((data) => {
-        let contacts = data
-        setContacts(contacts.filter((contact) => { return contact.isStarred }))
-      }).catch((err) => console.log(err))
-    }).catch((err) => console.log(err))
-  }, [contacts])
-
+  const { contacts } = useContext(ContactsContext)
   return (
     <View style={{ padding: 5 }}>
       <ScrollView>

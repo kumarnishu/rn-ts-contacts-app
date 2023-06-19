@@ -14,7 +14,7 @@ export type RootStackParamList = Record<ScreenNames[number], undefined>;
 export type NavigationType = NativeStackNavigationProp<RootStackParamList>;
 
 
-export function SignInStack() {
+export function NavigationStack() {
   return (
     <NavigationContainer  >
       <Navigator.Navigator initialRouteName="contacts"

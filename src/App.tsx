@@ -1,13 +1,16 @@
-import { SignInStack } from "./Navigation";
+import { NavigationStack } from "./Navigation";
+import { ContactsProvider } from "./contexts/ContactsContext";
 
 export default function App() {
     return (
-        <Main />
+        <ContactsProvider>
+            <Main />
+        </ContactsProvider>
     )
 }
 const Main = () => {
     return (
-        <SignInStack />
+        <NavigationStack />
     )
 }
 
