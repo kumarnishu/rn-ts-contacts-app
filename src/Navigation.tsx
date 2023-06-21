@@ -1,9 +1,9 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { Image, View } from 'react-native';
 import RecentContactsScreen from './screens/RecentContactsScreen';
 import ContactListScreen from './screens/ContactListScreen';
-import { Image, View } from 'react-native';
 
 
 const Navigator = createMaterialTopTabNavigator();
@@ -40,8 +40,7 @@ export function NavigationStack() {
                 </View>
               )
             },
-            tabBarLabel: "",
-            tabBarStyle: { backgroundColor: 'royalblue', display: 'flex', width: '100%', justifyContent: 'center' }
+            tabBarLabel: ""
           })
 
         }
